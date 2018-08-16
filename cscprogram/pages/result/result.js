@@ -35,6 +35,23 @@ Page({
   },
 
   /**
+   * 保存图片
+   */
+  saveImg:function(){
+
+    let url = this.data.shareImage
+    wx.saveImageToPhotosAlbum({
+      filePath: url,
+      success:function(){
+        wx.showToast({
+          title: '保存成功！',
+          duration:1500
+        })
+      }
+    })
+  },
+
+  /**
    * 渲染
    */
   drawShareImage:function(){
@@ -83,11 +100,11 @@ Page({
       ctx.fillText('这一年除了你出生，没再有大事发生！', mystartx, mystarty)
     }
 
-    // 随机抽出来3个大事件（小于等于3）
+    // 随机抽出来1个大事件（小于等于1）
     let newArr = []
-    if (dsq.length > 3){
-      // 随机抽出3个大事件组成newArr
-      newArr = that.getRandArr(dsq,3)
+    if (dsq.length > 1){
+      // 随机抽出1个大事件组成newArr
+      newArr = that.getRandArr(dsq,1)
       
     }else{
       newArr = dsq
@@ -163,6 +180,10 @@ Page({
             shareImage:e.tempFilePath
           })
           wx.hideLoading()
+          wx.showToast({
+            title: '长按可保存哦~',
+            duration: 2300
+          })
         }
       }, this)
     })
