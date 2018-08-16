@@ -1,2 +1,4 @@
 <!--pages/welcome/welcome.wxml-->
 <text>pages/welcome/welcome.wxml</text>
+
+<button bindtap='getCurrentUser'>获取用户数据</button>

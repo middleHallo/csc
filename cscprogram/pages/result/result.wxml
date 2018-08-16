@@ -1,2 +1,3 @@
 <!--pages/result/result.wxml-->
-<text>pages/result/result.wxml</text>
+<image src='{{shareImage}}' style='width:750rpx;' mode='widthFix' bindtap='lookAt'></image>
+<canvas canvas-id='share' style='width:750px;height:1334px' hidden></canvas>

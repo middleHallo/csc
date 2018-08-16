@@ -1,1 +1,23 @@
 /* pages/search/search.wxss */
+.container{
+  width: 750rpx;
+  padding: 50rpx;
+  margin: 0px;
+}
+
+.year{
+  padding-left: 20rpx;
+  width: 630rpx;
+  height: 35px;
+  border: solid 1px #9f9f9f;
+  margin-bottom: 10px;
+  /* padding-left: 100rpx; */
+}
+
+.yearholder{
+  font-size: 15px;
+}
+
+.serach{
+  width: 650rpx;
+}
