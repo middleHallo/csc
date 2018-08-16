@@ -7,8 +7,7 @@ Page({
   data: {
     shareImage:'',
     startx:35,
-    starty:250,
-    count:0
+    starty:250
   },
 
   /**
@@ -57,7 +56,6 @@ Page({
 
     // 昵称
     let nickname = wx.getStorageSync('nickname')
-
     if(nickname == ''){
       nickname = '后米米米米'
     }
@@ -69,13 +67,13 @@ Page({
     let ctx = wx.createCanvasContext('share', this)
     ctx.drawImage(back,0,0,750,1334)
 
+    // 渲染年份
     ctx.setFillStyle('white')
-
     ctx.setFontSize(55)
     ctx.fillText(year,50,100)
 
+    // 如果还没有相关年份的大事，则渲染另外一句话（优化体验）
     ctx.setFontSize(40)
-
     ctx.setTextAlign('left')
 
     if(dsq.length == 0){
@@ -85,6 +83,7 @@ Page({
       ctx.fillText('这一年除了你出生，没再有大事发生！', mystartx, mystarty)
     }
 
+    // 随机抽出来3个大事件（小于等于3）
     let newArr = []
     if (dsq.length > 3){
       // 随机抽出3个大事件组成newArr
@@ -130,14 +129,17 @@ Page({
     ctx.setFillStyle(color)
     ctx.fillRect(0,1194,750,140)
 
+    // 渲染小程序码
     ctx.drawImage(minicode,612,1205,118,118)
 
+    // 渲染昵称
     ctx.setFillStyle('white')
     ctx.setFontSize(40)
     ctx.setTextAlign('left')
     ctx.setTextBaseline('top')
     ctx.fillText(nickname, 30, 1205)
 
+    // 渲染昵称下的那行字
     ctx.setFontSize(30)
     if (dsq.length == 0) {
       ctx.fillText('出生这一年，并没有什么大事发生！ > 。<', 30, 1265)
@@ -145,6 +147,7 @@ Page({
       ctx.fillText('出生这一年，发生了这些大事。', 30, 1265)
     }
     
+    // 导出为图片
     ctx.draw(false,function(res){
       wx.canvasToTempFilePath({
         canvasId: 'share',
