@@ -1,6 +1,8 @@
 <!--pages/search/search.wxml-->
 <view class='container'>
+  <view>
     <input type='text' placeholder='输入昵称' bindinput='addNickName' class='year'  placeholder-class='yearholder'></input>
     <input type='text' placeholder='输入有效年份并且不小于1970，例：2001' bindinput='addYaer' class='year' placeholder-class='yearholder'></input>
     <button bindtap='search' class='serach'>穿越查看</button>
+  </view>
 </view>
